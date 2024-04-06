@@ -1,4 +1,4 @@
-<script data-no-instant>
+'<script data-no-instant>
 function switchTheme(theme) {
   switch (theme) {
     case 'light':
@@ -56,6 +56,7 @@ function toggleThemeListener() {
 }
 
 </script>
+
 <script>
   // load theme, as early as possible
   (function() {
@@ -65,6 +66,34 @@ function toggleThemeListener() {
 
     switchTheme(theme);
   })();
+</script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js'
+
+  // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+  import { getAnalytics, logEvent } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js'
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBH0CLeZrYCLu9KvOV30o3QXIxD50xHx9c",
+    authDomain: "ankit-blog-site.firebaseapp.com",
+    projectId: "ankit-blog-site",
+    storageBucket: "ankit-blog-site.appspot.com",
+    messagingSenderId: "455932065086",
+    appId: "1:455932065086:web:4146b5e5568c70df35686f",
+    measurementId: "G-PB2MMBD905"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  logEvent(analytics, 'notification_received');
+  console.log("successfully initialized the analytics")
 </script>
 
 <header class="header">
